@@ -1,5 +1,6 @@
 //module
 import { useEffect, useState } from "react";
+import { TypeAnimation } from 'react-type-animation';
 
 //css
 import '../css/TextRenderStyle.css'
@@ -9,36 +10,26 @@ const data={
     "skill": ["react", "reactNative", "spring", "node.js"]
 }
 
-
-//타이핑 애니메이션
 const TypingIntro = () => {
-    const introText = data.introduceMySelf;
-    const [indicateIntro, setIndicateIntro] = useState(''); //표시할 텍스트
-    const [count, setCount] = useState(0); // 시간에 따른 타이핑 효과
-
-    
-    useEffect(() => {
-        const typingInterval = setInterval(() =>{
-            setIndicateIntro((preValue) =>{
-                let result = preValue ? preValue + introText[count] : introText[0];
-                setCount(count + 1);
-
-                if( count >= introText.length){ // 만약 모든 글을 다쳤다면 초기화
-                    setCount(0);
-                    setIndicateIntro('');
-                }
-                
-                return result;
-            });
-        }, 100)
-
-        return () => {
-            clearInterval(typingInterval)
-        };
-    });
-
-    return <p className="introMySelf">{indicateIntro}</p>
-
+    return(
+        <TypeAnimation 
+        sequence={[
+                // Same substring at the start will only be typed out once, initially
+        '안녕하세요. 소통 \'잘\' 하는 개발자 신정환입니다.',
+        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        '성장할 수 있다면 가리지 않고 배우며',
+        1000,
+        '성장할 수 있다면 색다른 경험을 도전하는 것을 즐깁니다.',
+        1000,
+        'Let\'s get this show on the road',
+        1000
+        ]}
+        wrapper="span"
+        speed={33}
+        style={{ fontSize: '2em', display: 'inline-block' }}
+        repeat={Infinity}
+        />
+    )
 }
 
 function TextRenderPage() {
