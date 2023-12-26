@@ -26,7 +26,7 @@ const TypingIntro = () => {
         ]}
         wrapper="span"
         speed={33}
-        style={{ fontSize: '2em', display: 'inline-block' }}
+        style={{fontFamily:'Noto Sans CJK KR', fontSize: '2em', display: 'inline-block' }}
         repeat={Infinity}
         />
     )
