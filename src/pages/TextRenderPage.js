@@ -15,18 +15,23 @@ const TypingIntro = () => {
         <TypeAnimation 
         sequence={[
                 // Same substring at the start will only be typed out once, initially
+        '안녕하세요.'  
+        ,      
+        1000,
         '안녕하세요. 소통 \'잘\' 하는 개발자 신정환입니다.',
         1000, // wait 1s before replacing "Mice" with "Hamsters"
         '성장할 수 있다면 가리지 않고 배우며',
         1000,
-        '성장할 수 있다면 색다른 경험을 도전하는 것을 즐깁니다.',
+        '성장할 수 있다면',
         1000,
-        'Let\'s get this show on the road',
+        '성장할 수 있다면 색다른 경험을 도전하는     것을 즐깁니다.',
+        1000,
+        'We need to step up our efforts... ',
         1000
         ]}
         wrapper="span"
         speed={33}
-        style={{fontFamily:'Noto Sans CJK KR', fontSize: '2em', display: 'inline-block' }}
+        style={{fontFamily:'Noto Sans CJK KR', fontSize: '2.8em', display: 'inline-block', color:"white", marginBottom:'300px', marginLeft:'100px'}}
         repeat={Infinity}
         />
     )
@@ -35,8 +40,14 @@ const TypingIntro = () => {
 function TextRenderPage() {
 
     return (
-        <div className="firstStep">
-            <TypingIntro/>
+        <div className="firstStep" 
+            style={{
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('loGinShinImg/loGinShinPregentation.jpg')`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                filter:'blur(3px)'
+                }}>
+                    <TypingIntro/>
         </div>
     );
 }
